@@ -1,6 +1,7 @@
 # Build artifacts
 dist/
 build/
+public/build
 coverage/
 
 # Linting and testing

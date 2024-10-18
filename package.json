@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "sudo node server.js #root is requried for docker netstat persimmons",
-    "build-js": "esbuild src/containers.jsx --bundle --outfile=public/containers.js",
+    "build-js": "esbuild src/containers.jsx --bundle --outfile=public/build/containers.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
