@@ -1,11 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import Cookies from "js-cookie";
 
-const serverData = JSON.parse(Cookies.get("serverData"));
+const serverDataCookie = JSON.parse(Cookies.get("serverData"));
 
 function App() {
+  const serverData = serverDataCookie.map((containerInfo) =>
+    containerInfo.composeProject == "N/A"
+      ? containerInfo
+      : {
+          ...containerInfo,
+          simpleName: containerInfo.name.slice(
+            containerInfo.composeProject.length + 1,
+          ),
+        },
+  );
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -18,7 +27,7 @@ function App() {
               Name
             </th>
             <th scope="col" className="px-6 py-3">
-              Compose Project
+              Composed Project
             </th>
             <th scope="col" className="px-6 py-3">
               IP Address

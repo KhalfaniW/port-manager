@@ -9,17 +9,7 @@ export async function proxySubdomainRequest(...params) {
   // else return list
   const [req, res, next] = params;
 
-  const containers = (await listRunningContainers()).map((containerInfo) =>
-    containerInfo.composeProject == "N/A"
-      ? containerInfo
-      : {
-          //TODO remove- uncnessayr?
-          ...containerInfo,
-          simpleName: containerInfo.name.slice(
-            containerInfo.composeProject.length + 1,
-          ),
-        },
-  );
+  const containers = await listRunningContainers();
 
   const [firstSubdomain, proxyAppName] = req.headers.host.split(".");
   if (!req.headers.host.includes(".")) {
@@ -48,7 +38,7 @@ export async function proxySubdomainRequest(...params) {
       "serverData",
       JSON.stringify(matchIndexes.map((i) => containers[i])),
       {
-        maxAge: 1000 * 60*10,
+        maxAge: 1000 * 60 * 10,
         secure: process.env.NODE_ENV === "production", //  Secure in production
         sameSite: "strict", // or 'lax'
       },
