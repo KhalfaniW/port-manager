@@ -1,0 +1,39 @@
+# Build artifacts
+dist/
+build/
+coverage/
+
+# Linting and testing
+.eslintrc.js
+.stylelintrc.js
+.prettierrc.js
+.eslintrc.cjs
+.stylelintrc.cjs
+.prettierrc.cjs
+.prettierrc.json
+.stylelintcache
+
+# IDE files
+.vscode/
+.idea/
+
+# Editor backup files
+*.swp
+*.bak
+*.tmp
+
+# Package manager files
+pnpm-lock.yaml
+node_modules/
+
+# Temporary files
+.DS_Store
+Thumbs.db
+npm-debug.log*
+
+# Logs
+logs/
+
+
+# Example files
+examples/
