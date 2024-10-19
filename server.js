@@ -11,7 +11,7 @@ app.use("/containers/", (...p) => {
   express.static(path.join(import.meta.dirname, "public"))(...p);
 });
 
-app.all("/", (...params) => proxySubdomainRequest(...params));
+app.use("/", proxySubdomainRequest);
 
 app.listen(PORT, "127.0.0.1", () => {
   console.log(`Server listening on port ${PORT}`);

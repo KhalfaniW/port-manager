@@ -46,6 +46,5 @@ export async function proxySubdomainRequest(...params) {
 
     // res.redirect(`/check`);
     res.redirect(`/containers/containers.html`);
-    next();
   }
 }
